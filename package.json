@@ -1,0 +1,23 @@
+{
+  "name": "farecalc",
+  "version": "0.0.0",
+  "description": "Front-end for: FareCalculator for London public transport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LisaStoz/farecalc.git"
+  },
+  "author": "Jelizaveta Potapova, Aleksandr Gublickij",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/LisaStoz/farecalc/issues"
+  },
+  "homepage": "https://github.com/LisaStoz/farecalc",
+  "devDependencies": {
+    "assemble": "^0.4.42",
+    "grunt": "^0.4.5"
+  }
+}
