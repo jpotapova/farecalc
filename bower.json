@@ -1,0 +1,10 @@
+{
+  "name": "farecalc",
+  "version": "0.0.0",
+  "homepage": "https://github.com/LisaStoz/farecalc",
+  "license": "GPL",
+  "private": true,
+  "devDependencies": {
+    "bootstrap-less": "~3.2.0"
+  }
+}

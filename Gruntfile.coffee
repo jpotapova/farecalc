@@ -11,8 +11,43 @@ module.exports = (grunt) ->
         files: [
           'dist/index.html':'src/hbs/index.hbs'
         ]
+    less:
+      dev:
+        files:
+          'dist/css/main.css':'src/less/main.less'
+      prod:
+        options:
+          compress: true
+        files:
+          'dist/css/main.css':'src/less/main.less'
+    watch:
+      html:
+        files: [
+          'src/hbs/**/*.hbs'
+        ]
+        tasks: [
+          'assemble'
+        ]
+      css:
+        files: [
+          'src/less/**/*.less'
+        ]
+        tasks: [
+          'less:dev'
+        ]
+    concurrent:
+      options:
+        logConcurrentOutput: true
+      dev: [
+        'watch:html', 'watch:css'
+      ]
+
   })
 
   grunt.loadNpmTasks 'assemble'
+  grunt.loadNpmTasks 'grunt-contrib-less'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-concurrent'
 
-  grunt.registerTask('default', ['assemble'])
+  grunt.registerTask('default', ['assemble', 'less:dev', 'concurrent:dev'])
+  grunt.registerTask('prod', ['assemble', 'less:prod'])
