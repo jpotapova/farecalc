@@ -8,10 +8,8 @@ class FareCalculator.AppRouter extends Backbone.Router
     '': 'index'
     'about': 'about'
     'results': 'results'
-    'foobar': 'foobar'
 
   index: ->
-    # new App.TestView
     console.log 'index triggered'
 
   about: ->
@@ -19,8 +17,5 @@ class FareCalculator.AppRouter extends Backbone.Router
 
   results: ->
     console.log 'results triggered, wow!'
-
-  foobar: ->
-    console.log 'this is foobar'
 
 FareCalculator.start()
