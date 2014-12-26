@@ -34,7 +34,6 @@ module.exports = (grunt) ->
         ]
         tasks: [
           'coffee:dev', 'uglify:dev'
-          'coffee:test', 'casperjs'
         ]
     concurrent:
       options:
@@ -52,12 +51,13 @@ module.exports = (grunt) ->
         dest: 'dist/js/libs/'
     coffee:
       dev:
-        expand: true
-        flatten: true
-        cwd: 'src/coffee'
-        src: ['*.coffee']
-        dest: 'src/js-compiled/'
-        ext: '.js'
+        options:
+          bare: true
+        files:
+          'src/js-compiled/main.js': [
+            'src/coffee/app.coffee'
+            'src/coffee/*View.coffee'
+          ]
       test:
         expand: true
         flatten: false
