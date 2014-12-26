@@ -3,9 +3,13 @@ class FareCalculator.FormView extends Backbone.View
   el: '.journey-form'
 
   events:
-    'click #submit': 'navigate'
+    'submit': 'submit'
 
-  navigate: ->
-    FareCalculator.router.navigate 'results'
+  submit: (e)->
+    e.preventDefault()
+    FareCalculator.router.navigate(
+      'results'
+      {trigger: true}
+    )
 
 FareCalculator.formView = new FareCalculator.FormView

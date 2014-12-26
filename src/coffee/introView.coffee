@@ -5,7 +5,11 @@ class FareCalculator.IntroView extends Backbone.View
   events:
     'click a': 'navigate'
 
-  navigate: ->
-    FareCalculator.router.navigate 'about'
+  navigate: (e)->
+    e.preventDefault()
+    FareCalculator.router.navigate(
+      'about'
+      {trigger: true}
+    )
 
 FareCalculator.introView = new FareCalculator.IntroView
