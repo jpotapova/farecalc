@@ -28,8 +28,14 @@ module.exports = (grunt) ->
         files: ['src/less/**/*.less']
         tasks: ['less:dev']
       js:
-        files: ['src/coffee/*.coffee']
-        tasks: ['coffee:dev', 'uglify:dev']
+        files: [
+          'src/coffee/*.coffee'
+          'tests/coffee/**/*.coffee'
+        ]
+        tasks: [
+          'coffee:dev', 'uglify:dev'
+          'coffee:test', 'casperjs'
+        ]
     concurrent:
       options:
         logConcurrentOutput: true
@@ -46,14 +52,27 @@ module.exports = (grunt) ->
         dest: 'dist/js/libs/'
     coffee:
       dev:
-        expand: true,
-        flatten: true,
-        cwd: 'src/coffee',
-        src: ['*.coffee'],
-        dest: 'src/js-compiled/',
+        expand: true
+        flatten: true
+        cwd: 'src/coffee'
+        src: ['*.coffee']
+        dest: 'src/js-compiled/'
+        ext: '.js'
+      test:
+        expand: true
+        flatten: false
+        cwd: 'tests/coffee'
+        src: ['**/*.coffee']
+        dest: 'tests/js-compiled/'
         ext: '.js'
     coffeelint:
-      dev: ['src/coffee/*.coffee', 'Gruntfile.coffee']
+      dev: [
+        'src/coffee/*.coffee'
+        'tests/coffee/**/*.coffee'
+        'Gruntfile.coffee'
+      ]
+    casperjs:
+      files: ['tests/js-compiled/**/*.js']
     uglify:
       dev:
         options:
@@ -62,9 +81,9 @@ module.exports = (grunt) ->
           beautify: true
         files:
           'dist/js/main.js': [
-            'src/resources/bootstrap-less/js/tab.js',
-            'src/resources/underscore/underscore.js',
-            'src/resources/backbone/backbone.js',
+            'src/resources/bootstrap-less/js/tab.js'
+            'src/resources/underscore/underscore.js'
+            'src/resources/backbone/backbone.js'
             'src/js-compiled/*.js'
           ]
       prod:
@@ -84,6 +103,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-casperjs'
 
   grunt.registerTask('default', [
     'assemble'
