@@ -1,3 +1,4 @@
 node_modules
 dist
 src/resources
+js-compiled
