@@ -1,9 +1,9 @@
 class FareCalculator.IntroView extends Backbone.View
 
-  el: '.intro'
+  el: '.main'
 
   events:
-    'click a': 'navigate'
+    'click .intro a': 'navigate'
 
   navigate: (e)->
     e.preventDefault()
@@ -12,4 +12,12 @@ class FareCalculator.IntroView extends Backbone.View
       {trigger: true}
     )
 
-FareCalculator.introView = new FareCalculator.IntroView
+  template: _.template($('.intro-template').html())
+
+  render: ->
+    view = this
+    if view.$el.find('.intro').length is 0
+      view.$el.fadeOut(()->
+        view.$el.html(view.template()).fadeIn()
+      )
+    this
