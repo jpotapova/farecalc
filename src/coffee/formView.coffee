@@ -4,6 +4,7 @@ class FareCalculator.FormView extends Backbone.View
 
   events:
     'submit .journey-form': 'submit'
+    'keypress #from': 'suggestStations'
 
   template: _.template($('.journey-form-template').html())
 
@@ -13,6 +14,11 @@ class FareCalculator.FormView extends Backbone.View
       'results'
       {trigger: true}
     )
+
+  suggestStations: ()->
+    if not FareCalculator.fromStations?
+      FareCalculator.fromStations = new FareCalculator.StationsView
+      FareCalculator.fromStations.render()
 
   render: ->
     if this.$el.find('.journey-form').length is 0

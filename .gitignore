@@ -1,5 +1,8 @@
 node_modules
 dist/**
 !dist/.htaccess
+!dist/api
+!dist/api/**
+!dist/api/**/*.*
 src/resources
 js-compiled
