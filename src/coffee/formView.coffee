@@ -15,10 +15,10 @@ class FareCalculator.FormView extends Backbone.View
       {trigger: true}
     )
 
-  suggestStations: ()->
+  suggestStations: (e)->
     if not FareCalculator.fromStations?
       FareCalculator.fromStations = new FareCalculator.StationsView
-      FareCalculator.fromStations.render()
+      FareCalculator.fromStations.render($('#from').val())
 
   render: ->
     if this.$el.find('.journey-form').length is 0

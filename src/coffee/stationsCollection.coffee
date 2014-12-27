@@ -5,3 +5,9 @@ class FareCalculator.StationsCollection extends Backbone.Collection
 
   initialize: ()->
     this.fetch()
+
+  match: (namePart)->
+    this.filter(
+      (station)->
+        station.get('name').indexOf(namePart) > -1
+    )
