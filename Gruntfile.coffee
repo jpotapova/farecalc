@@ -55,8 +55,9 @@ module.exports = (grunt) ->
           bare: true
         files:
           'src/js-compiled/main.js': [
-            'src/coffee/app.coffee'
+            'src/coffee/appRouter.coffee'
             'src/coffee/*View.coffee'
+            'src/coffee/app.coffee'
           ]
       test:
         expand: true
