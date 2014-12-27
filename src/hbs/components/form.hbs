@@ -1,105 +1,107 @@
 <script type="text/template" class="journey-form-template">
 
-<form class="journey-form" action="/results" method="POST">
+  <form class="journey-form" action="/results" method="POST">
 
-  <div class="form-group">
-    <label for="from">From</label>
-    <input type="text" name="from" class="form-control" id="from"  aria-describedby="help-from">
-    <div id="help-from" class="help-block">
+    <div class="form-group">
+      <label for="from">From</label>
+      <input type="text" name="from" class="form-control" id="from"  aria-describedby="help-from">
+      <div id="help-from" class="help-block">
+        A block of help text that breaks onto a new line and may extend beyond one line.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="to">To</label>
+      <input type="text" name="to" class="form-control" id="to" aria-describedby="help-to">
+      <div id="help-to" class="help-block">
+        A block of help text that breaks onto a new line and may extend beyond one line.
+      </div>
+    </div>
+
+    <fieldset aria-describedby="help-days">
+      <legend>
+        Weekdays
+      </legend>
+      <button class="btn btn-info pull-right">Check all weekdays</button>
+      <br>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="mon" name="days" value="mon"> mon
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="tue" name="days" value="tue"> tue
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="wed" name="days" value="wed"> wed
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="thu" name="days" value="thu"> thu
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="fri" name="days" value="fri"> fri
+      </label>
+    </fieldset>
+
+    <fieldset aria-describedby="help-days">
+      <legend>
+        Weekend days
+      </legend>
+      <br>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="sat" name="days" value="sat"> sat
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" id="sun" name="days" value="sun"> sun
+      </label>
+    </fieldset>
+    <div id="help-days" class="help-block">
       A block of help text that breaks onto a new line and may extend beyond one line.
     </div>
-  </div>
-  <div class="form-group">
-    <label for="to">To</label>
-    <input type="text" name="to" class="form-control" id="to" aria-describedby="help-to">
-    <div id="help-to" class="help-block">
-      A block of help text that breaks onto a new line and may extend beyond one line.
+
+    <div class="form-group" aria-describedby="help-onwards">
+      <label for="onwards">Onwards departure</label>
+      <select name="onwards" class="form-control" id="onwards">
+        <option>00:00</option>
+        <option>00:15</option>
+        <option>00:30</option>
+        <option>00:45</option>
+        <option>01:00</option>
+      </select>
+      <div id="help-onwards" class="help-block">
+        A block of help text that breaks onto a new line and may extend beyond one line.
+      </div>
     </div>
-  </div>
 
-  <fieldset aria-describedby="help-days">
-    <legend>
-      Weekdays
-    </legend>
-    <button class="btn btn-info pull-right">Check all weekdays</button>
-    <br>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="mon" name="days" value="mon"> mon
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="tue" name="days" value="tue"> tue
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="wed" name="days" value="wed"> wed
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="thu" name="days" value="thu"> thu
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="fri" name="days" value="fri"> fri
-    </label>
-  </fieldset>
-
-  <fieldset aria-describedby="help-days">
-    <legend>
-      Weekend days
-    </legend>
-    <br>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="sat" name="days" value="sat"> sat
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" id="sun" name="days" value="sun"> sun
-    </label>
-  </fieldset>
-  <div id="help-days" class="help-block">
-    A block of help text that breaks onto a new line and may extend beyond one line.
-  </div>
-
-  <div class="form-group" aria-describedby="help-onwards">
-    <label for="onwards">Onwards departure</label>
-    <select name="onwards" class="form-control" id="onwards">
-      <option>00:00</option>
-      <option>00:15</option>
-      <option>00:30</option>
-      <option>00:45</option>
-      <option>01:00</option>
-    </select>
-    <div id="help-onwards" class="help-block">
-      A block of help text that breaks onto a new line and may extend beyond one line.
+    <div class="form-group" aria-describedby="help-return">
+      <label for="return">Return departure</label>
+      <select name="return" class="form-control" id="return">
+        <option>00:00</option>
+        <option>00:15</option>
+        <option>00:30</option>
+        <option>00:45</option>
+        <option>01:00</option>
+      </select>
+      <div id="help-return" class="help-block">
+        A block of help text that breaks onto a new line and may extend beyond one line.
+      </div>
     </div>
-  </div>
 
-  <div class="form-group" aria-describedby="help-return">
-    <label for="return">Return departure</label>
-    <select name="return" class="form-control" id="return">
-      <option>00:00</option>
-      <option>00:15</option>
-      <option>00:30</option>
-      <option>00:45</option>
-      <option>01:00</option>
-    </select>
-    <div id="help-return" class="help-block">
-      A block of help text that breaks onto a new line and may extend beyond one line.
+    <div class="form-group" aria-describedby="help-discount">
+      <label for="discount">Discount</label>
+      <select name="discount" class="form-control" id="discount">
+        <option>discount 1</option>
+        <option>discount 2</option>
+        <option>discount 3</option>
+        <option>discount 4</option>
+        <option>discount 5</option>
+      </select>
+      <div id="help-discount" class="help-block">
+        A block of help text that breaks onto a new line and may extend beyond one line.
+      </div>
     </div>
-  </div>
 
-  <div class="form-group" aria-describedby="help-discount">
-    <label for="discount">Discount</label>
-    <select name="discount" class="form-control" id="discount">
-      <option>discount 1</option>
-      <option>discount 2</option>
-      <option>discount 3</option>
-      <option>discount 4</option>
-      <option>discount 5</option>
-    </select>
-    <div id="help-discount" class="help-block">
-      A block of help text that breaks onto a new line and may extend beyond one line.
-    </div>
-  </div>
+    <input id="#submit" type="submit" value="Calculate" class="btn btn-success">
 
-  <input id="#submit" type="submit" value="Calculate" class="btn btn-success">
+  </form>
 
-</form>
+  <div id="results"></div>
 
 </script>

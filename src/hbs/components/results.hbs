@@ -1,73 +1,77 @@
-<div role="tabpanel" class="results">
+<script type="text/template" class="results-template">
 
-  <ul class="nav nav-tabs result-tabs">
-    <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
-    <li role="presentation" class="active"><a href="#charts" aria-controls="charts" role="tab" data-toggle="tab">Charts</a></li>
-  </ul>
+  <div role="tabpanel" class="results">
 
-  <div class="tab-content">
+    <ul class="nav nav-tabs result-tabs">
+      <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
+      <li role="presentation" class="active"><a href="#charts" aria-controls="charts" role="tab" data-toggle="tab">Charts</a></li>
+    </ul>
 
-    <div role="tabpanel" class="tab-pane active" id="charts">
-      <article>
-        <h2>Approximate yearly spendings</h2>
-        <div>chart1</div>
-        <p>Chart description</p>
-      </article>
+    <div class="tab-content">
 
-      <article>
-        <h2>Approximate monthly spendings</h2>
-        <div>chart2</div>
-        <p>chart description</p>
-      </article>
+      <div role="tabpanel" class="tab-pane active" id="charts">
+        <article>
+          <h2>Approximate yearly spendings</h2>
+          <div>chart1</div>
+          <p>Chart description</p>
+        </article>
 
-      <article>
-        <h2>Approximate weekly spendings</h2>
-        <div>chart3</div>
-        <p>chart description</p>
-      </article>
-    </div>
+        <article>
+          <h2>Approximate monthly spendings</h2>
+          <div>chart2</div>
+          <p>chart description</p>
+        </article>
 
-    <div role="tabpanel" class="tab-pane" id="table">
-      <div class="table-responsive prices">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th rowspan="2">Travel<br>Card<br>Type</th>
-              <th colspan="3">Spendings</th>
-            </tr>
-            <tr>
-              <th>Yearly</th>
-              <th>Monthly</th>
-              <th>Weekly</th>
-            </tr>
-          </thead>
-            <tr>
-              <td>Annual</td>
-              <td>1000</td>
-              <td><em>198</em></td>
-              <td><em>42</em></td>
-            </tr>
-            <tr>
-              <td>Monthly</td>
-              <td>1100</td>
-              <td>200</td>
-              <td>45</td>
-            </tr>
-            <tr>
-              <td>Weekly</td>
-              <td>1200</td>
-              <td>220</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>PAYG</td>
-              <td>1300</td>
-              <td>230</td>
-              <td>55</td>
-            </tr>
-        </table>
+        <article>
+          <h2>Approximate weekly spendings</h2>
+          <div>chart3</div>
+          <p>chart description</p>
+        </article>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="table">
+        <div class="table-responsive prices">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th rowspan="2">Travel<br>Card<br>Type</th>
+                <th colspan="3">Spendings</th>
+              </tr>
+              <tr>
+                <th>Yearly</th>
+                <th>Monthly</th>
+                <th>Weekly</th>
+              </tr>
+            </thead>
+              <tr>
+                <td>Annual</td>
+                <td>1000</td>
+                <td><em>198</em></td>
+                <td><em>42</em></td>
+              </tr>
+              <tr>
+                <td>Monthly</td>
+                <td>1100</td>
+                <td>200</td>
+                <td>45</td>
+              </tr>
+              <tr>
+                <td>Weekly</td>
+                <td>1200</td>
+                <td>220</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>PAYG</td>
+                <td>1300</td>
+                <td>230</td>
+                <td>55</td>
+              </tr>
+          </table>
+        </div>
       </div>
     </div>
+
   </div>
 
-</div>
+</script>
