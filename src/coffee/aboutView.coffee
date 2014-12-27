@@ -4,6 +4,16 @@ class FareCalculator.AboutView extends Backbone.View
 
   template: _.template($('.about-template').html())
 
+  events:
+    'click a': 'navigate'
+
+  navigate: (e)->
+    e.preventDefault()
+    FareCalculator.router.navigate(
+      '/'
+      {trigger: true}
+    )
+
   render: ->
     view = this
     if view.$el.find('.about').length is 0
