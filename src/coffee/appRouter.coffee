@@ -13,11 +13,13 @@ class FareCalculator.AppRouter extends Backbone.Router
     FareCalculator.aboutView = new FareCalculator.AboutView
     FareCalculator.headerView = new FareCalculator.HeaderView
     FareCalculator.introView = new FareCalculator.IntroView
+    FareCalculator.formView = new FareCalculator.FormView
+    FareCalculator.homeView = new FareCalculator.HomeView
 
   index: ->
     console.log 'index triggered'
-    FareCalculator.introView.render()
-
+    FareCalculator.homeView.render()
+    
   about: ->
     console.log 'about triggered whooray!'
     FareCalculator.aboutView.render()

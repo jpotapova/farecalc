@@ -1,9 +1,11 @@
 class FareCalculator.FormView extends Backbone.View
 
-  el: '.journey-form'
+  el: '.main'
 
   events:
-    'submit': 'submit'
+    'submit .journey-form': 'submit'
+
+  template: _.template($('.journey-form-template').html())
 
   submit: (e)->
     e.preventDefault()
@@ -12,4 +14,7 @@ class FareCalculator.FormView extends Backbone.View
       {trigger: true}
     )
 
-FareCalculator.formView = new FareCalculator.FormView
+  render: ->
+    if this.$el.find('.journey-form').length is 0
+       this.$el.append(this.template())
+    this

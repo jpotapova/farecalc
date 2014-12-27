@@ -15,9 +15,6 @@ class FareCalculator.IntroView extends Backbone.View
   template: _.template($('.intro-template').html())
 
   render: ->
-    view = this
-    if view.$el.find('.intro').length is 0
-      view.$el.fadeOut(()->
-        view.$el.html(view.template()).fadeIn()
-      )
+    if this.$el.find('.intro').length is 0
+      this.$el.append(this.template())    
     this
