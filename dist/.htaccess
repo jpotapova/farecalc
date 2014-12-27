@@ -1,4 +1,5 @@
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !^/index.html$
+RewriteCond %{REQUEST_URI} !^/api\/
 RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|js)$
-RewriteRule .* /index.html [L]
+RewriteRule .* /index.html

@@ -19,6 +19,7 @@ class FareCalculator.AppRouter extends Backbone.Router
 
   index: ->
     FareCalculator.homeView.render()
+    FareCalculator.stations = new FareCalculator.StationsCollection
 
   about: ->
     FareCalculator.aboutView.render()

@@ -56,6 +56,8 @@ module.exports = (grunt) ->
         files:
           'src/js-compiled/main.js': [
             'src/coffee/appRouter.coffee'
+            'src/coffee/*Model.coffee'
+            'src/coffee/*Collection.coffee'
             'src/coffee/*View.coffee'
             'src/coffee/app.coffee'
           ]
