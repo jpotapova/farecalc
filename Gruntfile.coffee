@@ -115,4 +115,5 @@ module.exports = (grunt) ->
     'concurrent:dev'
   ])
   grunt.registerTask('lint', ['coffeelint', 'lesslint'])
+  grunt.registerTask('test', ['coffee:test', 'casperjs'])
   grunt.registerTask('prod', ['assemble', 'less:prod'])
