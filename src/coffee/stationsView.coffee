@@ -19,14 +19,26 @@ class FareCalculator.StationsView extends Backbone.View
   update: (field)->
     that = this
     this.removeStations(field)
-    FareCalculator.stations.match(field.val()).forEach(
-      (station)->
-        subview = new FareCalculator.StationView({
-          el: field.next().find('.dropdown-menu')
-        })
-        that.subViews.push(subview)
-        subview.render(station)
-    )
+    foundStations = FareCalculator.stationsCollection.match(field.val())
+    if foundStations.length > 0
+      foundStations.forEach(
+        (stationModel)->
+          subview = new FareCalculator.StationView({
+            el: field.next().find('.dropdown-menu')
+          })
+          that.subViews.push(subview)
+          subview.render(stationModel)
+      )
+    else
+      # if FareCalculator.stationNotFound?
+      FareCalculator.stationNotFound = new FareCalculator.ErrorMessageModel({
+        "name": "Nothing found"
+      })
+      subview = new FareCalculator.StationView({
+        el: field.next().find('.dropdown-menu')
+      })
+      that.subViews.push(subview)
+      subview.render(FareCalculator.stationNotFound)
 
   render: (field)->
     $(this.template()).insertAfter( field )

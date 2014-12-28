@@ -1,0 +1,1 @@
+class FareCalculator.ErrorMessageModel extends Backbone.Model

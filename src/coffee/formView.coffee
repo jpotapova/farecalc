@@ -4,12 +4,9 @@ class FareCalculator.FormView extends Backbone.View
 
   events:
     'submit .journey-form': 'submit'
-    'keyup #from': 'suggestStations'
-    'keyup #to': 'suggestStations'
-    'blur #from': 'removeDropdown'
-    'blur #to': 'removeDropdown'
-    'focus #from': 'suggestStations'
-    'focus #to': 'suggestStations'
+    'keyup  #from, #to': 'suggestStations'
+    'blur #from, #to': 'removeDropdown'
+    'focus #from, #to': 'suggestStations'
 
   template: _.template($('.journey-form-template').html())
 
