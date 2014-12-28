@@ -6,3 +6,4 @@ dist/**
 !dist/api/**/*.*
 src/resources
 js-compiled
+.DS_Store
