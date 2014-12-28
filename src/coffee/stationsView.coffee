@@ -4,11 +4,34 @@ class FareCalculator.StationsView extends Backbone.View
 
   template: _.template($('.stations-template').html())
 
-  render: (typed)->
-    that = this
-    $(this.template()).insertAfter(this.$el.find('#from'))
-    FareCalculator.stations.match(typed).forEach(
-      (station)->
-        (new FareCalculator.StationView({el: that.$el.find('#from').next().find('.dropdown-menu')})).render(station)
+  subViews: []
+
+  removeStations: (field)->
+    ###
+    this.subViews.forEach(
+      (subView)->
+        subView.remove()
     )
+    ###
+    field.next().find('.dropdown-menu').html('')
+    this.subViews = []
+    console.log 'cleaned subviews'
+    console.log this.subViews.length
+
+  update: (field)->
+    that = this
+    this.removeStations(field)
+    FareCalculator.stations.match(field.val()).forEach(
+      (station)->
+        subview = new FareCalculator.StationView({
+          el: field.next().find('.dropdown-menu')
+        })
+        that.subViews.push(subview)
+        console.log 'adding'
+        console.log that.subViews.length
+        subview.render(station)
+    )
+
+  render: (field)->
+    $(this.template()).insertAfter( field )
     this

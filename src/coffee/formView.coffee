@@ -4,7 +4,8 @@ class FareCalculator.FormView extends Backbone.View
 
   events:
     'submit .journey-form': 'submit'
-    'keypress #from': 'suggestStations'
+    'keyup #from': 'suggestStations'
+    'keyup #to': 'suggestStations'
 
   template: _.template($('.journey-form-template').html())
 
@@ -17,8 +18,12 @@ class FareCalculator.FormView extends Backbone.View
 
   suggestStations: (e)->
     if not FareCalculator.fromStations?
+      console.log 'no list'
       FareCalculator.fromStations = new FareCalculator.StationsView
-      FareCalculator.fromStations.render($('#from').val())
+      FareCalculator.fromStations.render($(e.target))
+    else
+      console.log 'got list'
+    FareCalculator.fromStations.update($(e.target))
 
   render: ->
     if this.$el.find('.journey-form').length is 0
