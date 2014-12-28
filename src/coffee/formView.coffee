@@ -6,6 +6,10 @@ class FareCalculator.FormView extends Backbone.View
     'submit .journey-form': 'submit'
     'keyup #from': 'suggestStations'
     'keyup #to': 'suggestStations'
+    'blur #from': 'removeDropdown'
+    'blur #to': 'removeDropdown'
+    'focus #from': 'suggestStations'
+    'focus #to': 'suggestStations'
 
   template: _.template($('.journey-form-template').html())
 
@@ -17,15 +21,19 @@ class FareCalculator.FormView extends Backbone.View
     )
 
   suggestStations: (e)->
-    if not FareCalculator.fromStations?
-      console.log 'no list'
-      FareCalculator.fromStations = new FareCalculator.StationsView
-      FareCalculator.fromStations.render($(e.target))
+    if $(e.target).val().length > 0
+      if not FareCalculator.stationsView?
+        FareCalculator.stationsView = new FareCalculator.StationsView
+        FareCalculator.stationsView.render($(e.target))
+      FareCalculator.stationsView.update($(e.target))
     else
-      console.log 'got list'
-    FareCalculator.fromStations.update($(e.target))
+      this.removeDropdown()
 
   render: ->
     if this.$el.find('.journey-form').length is 0
        this.$el.append(this.template())
     this
+
+  removeDropdown: ()->
+    FareCalculator.stationsView?.setElement('.dropdown').remove()
+    FareCalculator.stationsView = undefined

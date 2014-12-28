@@ -15,8 +15,6 @@ class FareCalculator.StationsView extends Backbone.View
     ###
     field.next().find('.dropdown-menu').html('')
     this.subViews = []
-    console.log 'cleaned subviews'
-    console.log this.subViews.length
 
   update: (field)->
     that = this
@@ -27,8 +25,6 @@ class FareCalculator.StationsView extends Backbone.View
           el: field.next().find('.dropdown-menu')
         })
         that.subViews.push(subview)
-        console.log 'adding'
-        console.log that.subViews.length
         subview.render(station)
     )
 
