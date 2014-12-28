@@ -7,6 +7,7 @@ class FareCalculator.FormView extends Backbone.View
     'keyup  #from, #to': 'suggestStations'
     'blur #from, #to': 'removeDropdown'
     'focus #from, #to': 'suggestStations'
+    'click #toggle-weekdays': 'toggleWeekdays'
 
   template: _.template($('.journey-form-template').html())
 
@@ -36,3 +37,13 @@ class FareCalculator.FormView extends Backbone.View
       FareCalculator.stationsView?.setElement('.dropdown').remove()
       FareCalculator.stationsView = undefined
     setTimeout(removeIt, 1)
+
+  toggleWeekdays: (e)->
+    e.preventDefault()
+
+    if $('.week-days input:checked').length < 5
+      $('.week-days input').prop('checked', true)
+      $(e.target).text('Un-check all weekdays')
+    else
+      $('.week-days input').prop('checked', false)
+      $(e.target).text('Check all weekdays')

@@ -11,3 +11,34 @@ input[type="submit"] {
     display: block;
   }
 }
+
+
+.checkbox-inline{
+  float:left;
+  width: 20%;
+  margin: @line-height-computed 0;
+
+  &:first-of-type{
+    clear:both;
+  }
+
+  &+.checkbox-inline{
+    margin-top: @line-height-computed;
+    margin-left: 0;
+    padding-left: 30px;
+  }
+}
+
+.weekends{
+  legend{
+    margin-bottom: 0;
+  }
+
+  .element-align{
+    width: 40%;
+  }
+
+  .checkbox-inline{
+    width: 50%;
+  }
+}

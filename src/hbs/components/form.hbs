@@ -17,40 +17,40 @@
       </div>
     </div>
 
-    <fieldset aria-describedby="help-days">
+    <fieldset aria-describedby="help-days" class="week-days">
       <legend>
         Weekdays
       </legend>
-      <button class="btn btn-info pull-right">Check all weekdays</button>
-      <br>
+      <button id="toggle-weekdays" class="btn btn-info pull-right">Check all weekdays</button>
       <label class="checkbox-inline">
-        <input type="checkbox" id="mon" name="days" value="mon"> mon
+        <input type="checkbox" id="mon" name="days" value="mon" > Mon
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" id="tue" name="days" value="tue"> tue
+        <input type="checkbox" id="tue" name="days" value="tue"> Tue
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" id="wed" name="days" value="wed"> wed
+        <input type="checkbox" id="wed" name="days" value="wed"> Wed
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" id="thu" name="days" value="thu"> thu
+        <input type="checkbox" id="thu" name="days" value="thu"> Thu
       </label>
       <label class="checkbox-inline">
-        <input type="checkbox" id="fri" name="days" value="fri"> fri
+        <input type="checkbox" id="fri" name="days" value="fri"> Fri
       </label>
     </fieldset>
 
-    <fieldset aria-describedby="help-days">
+    <fieldset aria-describedby="help-days" class="weekends">
       <legend>
         Weekend days
       </legend>
-      <br>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="sat" name="days" value="sat"> sat
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="sun" name="days" value="sun"> sun
-      </label>
+      <div class="element-align right">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sat" name="days" value="sat"> Sat
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sun" name="days" value="sun"> Sun
+        </label>
+      </div>
     </fieldset>
     <div id="help-days" class="help-block">
       A block of help text that breaks onto a new line and may extend beyond one line.
