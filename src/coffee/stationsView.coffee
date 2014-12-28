@@ -3,7 +3,7 @@ class FareCalculator.StationsView extends Backbone.View
   el: '.main'
 
   events:
-    "click .dropdown a": "selectStation"
+    "click .dropdown a:not([disabled=disabled])": "selectStation"
 
   selectStation: (e)->
     e.preventDefault()
@@ -39,7 +39,8 @@ class FareCalculator.StationsView extends Backbone.View
     else
       # if FareCalculator.stationNotFound?
       FareCalculator.stationNotFound = new FareCalculator.ErrorMessageModel({
-        "name": "Nothing found"
+        "name": "Nothing found",
+        "disabled": true
       })
       subview = new FareCalculator.StationView({
         el: field.next().find('.dropdown-menu')
