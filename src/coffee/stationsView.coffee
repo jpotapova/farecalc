@@ -2,6 +2,13 @@ class FareCalculator.StationsView extends Backbone.View
 
   el: '.main'
 
+  events:
+    "click .dropdown a": "selectStation"
+
+  selectStation: (e)->
+    e.preventDefault()
+    $(e.target).closest('.form-group').find('input').val($(e.target).text())
+
   template: _.template($('.stations-template').html())
 
   subViews: []

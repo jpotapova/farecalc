@@ -32,5 +32,7 @@ class FareCalculator.FormView extends Backbone.View
     this
 
   removeDropdown: ()->
-    FareCalculator.stationsView?.setElement('.dropdown').remove()
-    FareCalculator.stationsView = undefined
+    removeIt = ->
+      FareCalculator.stationsView?.setElement('.dropdown').remove()
+      FareCalculator.stationsView = undefined
+    setTimeout(removeIt, 1)
