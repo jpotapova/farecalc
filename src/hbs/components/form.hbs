@@ -70,7 +70,7 @@
       <label for="return">Return departure</label>
       <select name="return" class="form-control" id="return">
         {{#each site.timeOptions}}
-        <option {{#if return}}selected="selected"{{/if}}>{{time}}</option>
+        <option value="{{time}}" {{#if return}}selected="selected"{{/if}}>{{time}}</option>
         {{/each}}
       </select>
       <div id="help-return" class="help-block">
@@ -81,11 +81,9 @@
     <div class="form-group" aria-describedby="help-discount">
       <label for="discount">Discount</label>
       <select name="discount" class="form-control" id="discount">
-        <option>discount 1</option>
-        <option>discount 2</option>
-        <option>discount 3</option>
-        <option>discount 4</option>
-        <option>discount 5</option>
+        {{#each site.discountCards}}
+        <option value="{{id}}">{{{name}}}</option>
+        {{/each}}
       </select>
       <div id="help-discount" class="help-block">
         A block of help text that breaks onto a new line and may extend beyond one line.

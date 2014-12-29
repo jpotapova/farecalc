@@ -96,5 +96,79 @@
     {"time":"23:15"},
     {"time":"23:30"},
     {"time":"23:45"}
+  ],
+  "discountCards": [
+    {
+      "id": "0",
+      "name": "no discount card"
+    },
+    {
+      "id": "1",
+      "name": "18+ Student Oyster photocard"
+    },
+    {
+      "id": "2",
+      "name": "16+ Zip Oyster photocard"
+    },
+    {
+      "id": "3",
+      "name": "11-15 Zip Oyster photocard"
+    },
+    {
+      "id": "4",
+      "name": "5-10 Zip Oyster photocard"
+    },
+    {
+      "id": "5",
+      "name": "Jobcentre Plus Travel Discount Card"
+    },
+    {
+      "id": "6",
+      "name": "Bus &amp; Tram Discount photocard"
+    },
+    {
+      "id": "7",
+      "name": "Freedom Pass"
+    },
+    {
+      "id": "8",
+      "name": "60+ Oyster photocard"
+    },
+    {
+      "id": "9",
+      "name": "Veterans Oyster photocard"
+    },
+    {
+      "id": "10",
+      "name": "English National Concessionary Pass"
+    },
+    {
+      "id": "11",
+      "name": "16-25 Railcard"
+    },
+    {
+      "id": "12",
+      "name": "Senior Railcard"
+    },
+    {
+      "id": "13",
+      "name": "HM Forces Railcard"
+    },
+    {
+      "id": "14",
+      "name": "Disabled Persons Railcard"
+    },
+    {
+      "id": "15",
+      "name": "Network Railcard"
+    },
+    {
+      "id": "16",
+      "name": "Family &amp; Friends Railcard"
+    },
+    {
+      "id": "17",
+      "name": "Gold Card"
+    }
   ]
 }
