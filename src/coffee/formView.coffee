@@ -13,6 +13,10 @@ class FareCalculator.FormView extends Backbone.View
 
   submit: (e)->
     e.preventDefault()
+    that = this
+    FareCalculator.formModel = new FareCalculator.FormModel({
+      "from": $("#from").val()
+    })
     FareCalculator.router.navigate(
       'results'
       {trigger: true}
