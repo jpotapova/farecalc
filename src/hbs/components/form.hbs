@@ -1,7 +1,5 @@
 <script type="text/template" class="journey-form-template">
-
   <form class="journey-form" action="/results" method="POST">
-
     <div class="form-group">
       <label for="from">From</label>
       <input type="text" name="from" class="form-control" id="from"  aria-describedby="help-from">
@@ -59,11 +57,9 @@
     <div class="form-group" aria-describedby="help-onwards">
       <label for="onwards">Onwards departure</label>
       <select name="onwards" class="form-control" id="onwards">
-        <option>00:00</option>
-        <option>00:15</option>
-        <option>00:30</option>
-        <option>00:45</option>
-        <option>01:00</option>
+        {{#each site.timeOptions}}
+        <option {{#if onwards}}selected="selected"{{/if}}>{{time}}</option>
+        {{/each}}
       </select>
       <div id="help-onwards" class="help-block">
         A block of help text that breaks onto a new line and may extend beyond one line.
@@ -73,11 +69,9 @@
     <div class="form-group" aria-describedby="help-return">
       <label for="return">Return departure</label>
       <select name="return" class="form-control" id="return">
-        <option>00:00</option>
-        <option>00:15</option>
-        <option>00:30</option>
-        <option>00:45</option>
-        <option>01:00</option>
+        {{#each site.timeOptions}}
+        <option {{#if return}}selected="selected"{{/if}}>{{time}}</option>
+        {{/each}}
       </select>
       <div id="help-return" class="help-block">
         A block of help text that breaks onto a new line and may extend beyond one line.

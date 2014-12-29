@@ -7,6 +7,7 @@ module.exports = (grunt) ->
         partials:[
           'src/hbs/components/*.hbs'
         ]
+        data: 'src/hbs/data/*.json'
       dev:
         files: [
           'dist/index.html':'src/hbs/index.hbs'
