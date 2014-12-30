@@ -14,9 +14,23 @@ class FareCalculator.FormView extends Backbone.View
   submit: (e)->
     e.preventDefault()
     that = this
-    FareCalculator.formModel = new FareCalculator.FormModel({
+    fieldValues = {
       "from": $("#from").val()
-    })
+      "to": $('#to').val()
+      "days": (()->
+        checked = ""
+        $('[name="days"]').each(
+          ()->
+            if $(this).is(':checked') then checked+="1" else checked+="0"
+        )
+        checked
+      )()
+      "onwards": $("#onwards").val()
+      "return": $("#return").val()
+      "discount": $("#discount").val()
+    }
+    FareCalculator.formModel = new FareCalculator.FormModel(fieldValues)
+
     FareCalculator.router.navigate(
       'results'
       {trigger: true}
