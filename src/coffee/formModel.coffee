@@ -11,3 +11,7 @@ class FareCalculator.FormModel extends Backbone.Model
           console.log 'error'
       }
     )
+
+  validate: ()->
+    # TO DO
+    return
