@@ -5,8 +5,12 @@ class FareCalculator.FormModel extends Backbone.Model
     result = this.save(
       this.attributes
       {
-        success: ()->
-          console.log 'success'
+        success: (model, response)->
+          FareCalculator.resultsModel = new FareCalculator.ResultsModel(response)
+          FareCalculator.router.navigate(
+            'results'
+            {trigger: true}
+          )
         error: ()->
           console.log 'error'
       }

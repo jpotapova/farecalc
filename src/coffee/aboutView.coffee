@@ -5,7 +5,7 @@ class FareCalculator.AboutView extends Backbone.View
   template: _.template($('.about-template').html())
 
   events:
-    'click a': 'navigate'
+    'click .about a': 'navigate'
 
   navigate: (e)->
     e.preventDefault()

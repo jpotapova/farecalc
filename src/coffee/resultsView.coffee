@@ -10,7 +10,7 @@ class FareCalculator.ResultsView extends Backbone.View
     resultsBlock.animate(
       {opacity: 0}
       ()->
-        resultsBlock.html(view.template())
+        resultsBlock.html(view.template(FareCalculator.resultsModel.attributes))
         $('html, body').animate(
           {scrollTop: $("#results").offset().top}, 100
           ()->
