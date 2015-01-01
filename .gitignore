@@ -7,3 +7,4 @@ dist/**
 src/resources
 js-compiled
 .DS_Store
+_build

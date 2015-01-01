@@ -12,22 +12,26 @@ module.exports = (grunt) ->
         files: [
           'dist/index.html':'src/hbs/index.hbs'
         ]
+    concat:
+      dev:
+        files:
+          'dist/css/main.css': ['src/resources/chartist/dist/chartist.min.css', '_build/css/main.css']
     less:
       dev:
         files:
-          'dist/css/main.css':'src/less/main.less'
+          '_build/css/main.css':'src/less/main.less'
       prod:
         options:
           compress: true
         files:
-          'dist/css/main.css':'src/less/main.less'
+          '_build/css/main.css':'src/less/main.less'
     watch:
       html:
         files: ['src/hbs/**/*.hbs']
         tasks: ['assemble']
       css:
         files: ['src/less/**/*.less']
-        tasks: ['less:dev']
+        tasks: ['less:dev', 'concat:dev']
       js:
         files: [
           'src/coffee/*.coffee'
@@ -85,6 +89,7 @@ module.exports = (grunt) ->
           beautify: true
         files:
           'dist/js/main.js': [
+            'src/resources/chartist/dist/chartist.min.js'
             'src/resources/bootstrap-less/js/tab.js'
             'src/resources/underscore/underscore.js'
             'src/resources/backbone/backbone.js'
@@ -108,6 +113,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-casperjs'
+  grunt.loadNpmTasks 'grunt-contrib-concat'
 
   grunt.registerTask('default', [
     'assemble'
@@ -115,6 +121,7 @@ module.exports = (grunt) ->
     'copy:libs'
     'coffee:dev'
     'uglify:dev'
+    'concat:dev'
     'concurrent:dev'
   ])
   grunt.registerTask('lint', ['coffeelint', 'lesslint'])
