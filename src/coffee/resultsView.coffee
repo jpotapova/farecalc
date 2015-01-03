@@ -12,19 +12,7 @@ class FareCalculator.ResultsView extends Backbone.View
       ()->
         resultsBlock.html(view.template(FareCalculator.resultsModel.attributes))
 
-        # chart begin
-        data = {
-          labels: ['Annual', 'Monthly', 'Weekly'],
-          series: [
-            [
-              FareCalculator.resultsModel.get('yearlyTC').yearly
-              FareCalculator.resultsModel.get('monthlyTC').yearly
-              FareCalculator.resultsModel.get('weeklyTC').yearly
-            ]
-          ]
-        }
-
-        options = {
+        chartsOptions = {
           seriesBarDistance: 1
           axisY:
             labelInterpolationFnc:
@@ -32,10 +20,8 @@ class FareCalculator.ResultsView extends Backbone.View
                 '&pound; ' + value
 
         }
-
-        chart = new Chartist.Bar('#yearly-spendings', data, options)
-        chart.on(
-          'draw'
+        chartLabels = ['Annual', 'Monthly', 'Weekly', 'PAYG']
+        chartAnimation =
           (data)->
             if data.type is 'bar'
               data.element.animate({
@@ -47,9 +33,29 @@ class FareCalculator.ResultsView extends Backbone.View
                   easing: 'easeOutQuart'
                 }
               })
+
+        ['yearly', 'monthly', 'weekly'].forEach(
+          (chartType)->
+            data = {
+              labels: chartLabels
+              series: [
+                [
+                  FareCalculator.resultsModel.get('yearlyTC')[chartType]
+                  FareCalculator.resultsModel.get('monthlyTC')[chartType]
+                  FareCalculator.resultsModel.get('weeklyTC')[chartType]
+                  FareCalculator.resultsModel.get('payg')[chartType]
+                ]
+              ]
+            }
+            chart = new Chartist.Bar("##{ chartType }-spendings", data, chartsOptions)
+            chart.on(
+              'draw'
+              chartAnimation
+            )
+
         )
 
-        # chart end
+        # charts end
 
         $('html, body').animate(
           {scrollTop: $("#results").offset().top}, 100
