@@ -58,7 +58,7 @@
       <label for="onwards">Onwards departure</label>
       <select name="onwards" class="form-control" id="onwards">
         {{#each site.timeOptions}}
-        <option {{#if onwards}}selected="selected"{{/if}}>{{time}}</option>
+        <option  value="{{time}}" {{#if onwards}}selected="selected"{{/if}}>{{time}}</option>
         {{/each}}
       </select>
       <div id="help-onwards" class="help-block">

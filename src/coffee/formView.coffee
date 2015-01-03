@@ -31,6 +31,8 @@ class FareCalculator.FormView extends Backbone.View
     }
     FareCalculator.formModel = new FareCalculator.FormModel(fieldValues)
 
+    
+
     ## TO DO: do not perform on failure
     ###
     FareCalculator.router.navigate(
