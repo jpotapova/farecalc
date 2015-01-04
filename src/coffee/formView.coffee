@@ -14,6 +14,7 @@ class FareCalculator.FormView extends Backbone.View
   submit: (e)->
     e.preventDefault()
     FareCalculator.formView.resetErrors()
+    FareCalculator.resultsView.cleanup()
     that = this
     fieldValues = {
       "from": $("#from").val()
@@ -80,8 +81,6 @@ class FareCalculator.FormView extends Backbone.View
   showErrors: ( errors )->
     errors.forEach (
       (error)->
-        console.log (error.field)
         $("#help-#{error.field}").text( error.msg )
         $("#help-#{error.field}").closest('.form-group').addClass('has-error')
-        #console.log (error.msg)
     )
