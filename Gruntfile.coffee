@@ -80,7 +80,7 @@ module.exports = (grunt) ->
         'Gruntfile.coffee'
       ]
     casperjs:
-      files: ['tests/js-compiled/**/*.js']
+      e2e: ['tests/js-compiled/e2e/*.js']
     uglify:
       dev:
         options:
@@ -125,5 +125,5 @@ module.exports = (grunt) ->
     'concurrent:dev'
   ])
   grunt.registerTask('lint', ['coffeelint', 'lesslint'])
-  grunt.registerTask('test', ['coffee:test', 'casperjs'])
+  grunt.registerTask('test', ['coffee:test', 'casperjs:e2e'])
   grunt.registerTask('prod', ['assemble', 'less:prod'])
