@@ -13,16 +13,30 @@ casper.test.begin('Form', {
     casper.then(
       () ->
         test.assertDoesntExist '.journey-form'
-        
+
         casper.waitForSelector('.journey-form'
           ()->
-             this.sendKeys("#from", "ng", { keepFocus: true });
-             casper.waitForSelector('.dropdown.stations'
+
+            casper.sendKeys( '#from', "ng", { keepFocus: false })
+            casper.waitForSelector('.dropdown.stations'
               ()->
                 test.assertElementCount('.dropdown.stations li', 2)
                 casper.click('.dropdown.stations li:first-child a')
                 test.assert( casper.getFormValues('form').from is "Angel" )
-             )
+
+                casper.waitWhileSelector('.dropdown.stations'
+                  ()->
+                    casper.sendKeys( '#to', "ng", { keepFocus: false })
+                    casper.waitForSelector('.dropdown.stations'
+                      ()->
+                        test.assertElementCount('.dropdown.stations li', 2)
+                        casper.click('.dropdown.stations li:first-child a')
+                        test.assert( casper.getFormValues('form').to is "Angel" )
+                    )
+                )
+
+
+            )
         )
     )
 
