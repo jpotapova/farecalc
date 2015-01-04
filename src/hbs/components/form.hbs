@@ -2,58 +2,53 @@
   <form class="journey-form" action="/results" method="POST">
     <div class="form-group">
       <label for="from">From</label>
+      <div id="help-from" class="help-block"></div>
       <input type="text" name="from" class="form-control" id="from"  aria-describedby="help-from">
-      <div id="help-from" class="help-block">
-        A block of help text that breaks onto a new line and may extend beyond one line.
-      </div>
     </div>
     <div class="form-group">
       <label for="to">To</label>
+      <div id="help-to" class="help-block"></div>
       <input type="text" name="to" class="form-control" id="to" aria-describedby="help-to">
-      <div id="help-to" class="help-block">
-        A block of help text that breaks onto a new line and may extend beyond one line.
-      </div>
     </div>
 
-    <fieldset aria-describedby="help-days" class="week-days">
-      <legend>
-        Weekdays
-      </legend>
-      <button id="toggle-weekdays" class="btn btn-info pull-right">Check all weekdays</button>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="mon" name="days" value="mon" > Mon
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="tue" name="days" value="tue"> Tue
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="wed" name="days" value="wed"> Wed
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="thu" name="days" value="thu"> Thu
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="fri" name="days" value="fri"> Fri
-      </label>
-    </fieldset>
+    <div class="form-group">
+      <fieldset aria-describedby="help-days" class="week-days">
+        <legend>
+          Weekdays
+        </legend>
+        <button id="toggle-weekdays" class="btn btn-info pull-right">Check all weekdays</button>
+        <div id="help-days" class="help-block"></div>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="mon" name="days" value="mon" > Mon
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="tue" name="days" value="tue"> Tue
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="wed" name="days" value="wed"> Wed
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="thu" name="days" value="thu"> Thu
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="fri" name="days" value="fri"> Fri
+        </label>
+      </fieldset>
 
-    <fieldset aria-describedby="help-days" class="weekends">
-      <legend>
-        Weekend days
-      </legend>
-      <div class="element-align right">
-        <label class="checkbox-inline">
-          <input type="checkbox" id="sat" name="days" value="sat"> Sat
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" id="sun" name="days" value="sun"> Sun
-        </label>
+      <fieldset aria-describedby="help-days" class="weekends">
+        <legend>
+          Weekend days
+        </legend>
+        <div class="element-align right">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="sat" name="days" value="sat"> Sat
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="sun" name="days" value="sun"> Sun
+          </label>
+        </div>
+      </fieldset>
       </div>
-    </fieldset>
-    <div id="help-days" class="help-block">
-      A block of help text that breaks onto a new line and may extend beyond one line.
-    </div>
-
     <div class="form-group" aria-describedby="help-onwards">
       <label for="onwards">Onwards departure</label>
       <select name="onwards" class="form-control" id="onwards">
@@ -61,9 +56,6 @@
         <option  value="{{time}}" {{#if onwards}}selected="selected"{{/if}}>{{time}}</option>
         {{/each}}
       </select>
-      <div id="help-onwards" class="help-block">
-        A block of help text that breaks onto a new line and may extend beyond one line.
-      </div>
     </div>
 
     <div class="form-group" aria-describedby="help-return">
@@ -73,9 +65,6 @@
         <option value="{{time}}" {{#if return}}selected="selected"{{/if}}>{{time}}</option>
         {{/each}}
       </select>
-      <div id="help-return" class="help-block">
-        A block of help text that breaks onto a new line and may extend beyond one line.
-      </div>
     </div>
 
     <div class="form-group" aria-describedby="help-discount">
@@ -85,9 +74,6 @@
         <option value="{{id}}">{{{name}}}</option>
         {{/each}}
       </select>
-      <div id="help-discount" class="help-block">
-        A block of help text that breaks onto a new line and may extend beyond one line.
-      </div>
     </div>
 
     <input id="#submit" type="submit" value="Calculate" class="btn btn-success">

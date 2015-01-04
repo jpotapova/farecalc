@@ -6,6 +6,8 @@ class FareCalculator.FormModel extends Backbone.Model
       'invalid'
       ()->
         console.log 'invalid form'
+        #console.log (this.validationError)
+        FareCalculator.formView.showErrors(this.validationError)
     )
 
     this.save(
