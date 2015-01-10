@@ -5,7 +5,7 @@ class FareCalculator.FormModel extends Backbone.Model
     this.on(
       'invalid'
       ()->
-        console.log 'invalid form'
+        FareCalculator.formView.showErrors(this.validationError)
     )
 
     this.save(
@@ -13,10 +13,8 @@ class FareCalculator.FormModel extends Backbone.Model
       {
         success: (model, response)->
           FareCalculator.resultsModel = new FareCalculator.ResultsModel(response)
-          FareCalculator.router.navigate(
-            'results'
-            {trigger: true}
-          )
+          FareCalculator.router.navigate('results')
+          FareCalculator.router.results()
         error: ()->
           console.log 'error'
       }

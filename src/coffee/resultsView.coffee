@@ -64,3 +64,6 @@ class FareCalculator.ResultsView extends Backbone.View
         )
     )
     this
+
+  cleanup: ()->
+    $('#results').html("")

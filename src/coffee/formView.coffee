@@ -13,6 +13,8 @@ class FareCalculator.FormView extends Backbone.View
 
   submit: (e)->
     e.preventDefault()
+    FareCalculator.formView.resetErrors()
+    FareCalculator.resultsView.cleanup()
     that = this
     fieldValues = {
       "from": $("#from").val()
@@ -30,8 +32,6 @@ class FareCalculator.FormView extends Backbone.View
       "discount": $("#discount").val()
     }
     FareCalculator.formModel = new FareCalculator.FormModel(fieldValues)
-
-    
 
     ## TO DO: do not perform on failure
     ###
@@ -59,7 +59,7 @@ class FareCalculator.FormView extends Backbone.View
     removeIt = ->
       FareCalculator.stationsView?.setElement('.dropdown').remove()
       FareCalculator.stationsView = undefined
-    setTimeout(removeIt, 1)
+    setTimeout(removeIt, 100)
 
   toggleWeekdays: (e)->
     e.preventDefault()
@@ -70,3 +70,17 @@ class FareCalculator.FormView extends Backbone.View
     else
       $('.week-days input').prop('checked', false)
       $(e.target).text('Check all weekdays')
+
+  resetErrors: ()->
+    ['from', 'to', 'days'].forEach(
+      (field)->
+        $("#help-#{field}").text("")
+        $("#help-#{field}").closest('.form-group').removeClass('has-error')
+    )
+
+  showErrors: ( errors )->
+    errors.forEach (
+      (error)->
+        $("#help-#{error.field}").text( error.msg )
+        $("#help-#{error.field}").closest('.form-group').addClass('has-error')
+    )
