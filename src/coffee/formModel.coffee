@@ -16,7 +16,8 @@ class FareCalculator.FormModel extends Backbone.Model
           FareCalculator.router.navigate('results')
           FareCalculator.router.results()
         error: ()->
-          console.log 'error'
+          FareCalculator.router.navigate('error')
+          FareCalculator.router.error()
       }
     )
 

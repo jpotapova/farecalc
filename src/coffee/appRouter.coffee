@@ -7,7 +7,8 @@ class FareCalculator.AppRouter extends Backbone.Router
   routes:
     '': 'index'
     'about': 'about'
-    'results': 'results'
+    'results': 'results',
+    'error': 'error'
 
   initialize: ->
     FareCalculator.aboutView = new FareCalculator.AboutView
@@ -16,6 +17,7 @@ class FareCalculator.AppRouter extends Backbone.Router
     FareCalculator.formView = new FareCalculator.FormView
     FareCalculator.resultsView = new FareCalculator.ResultsView
     FareCalculator.homeView = new FareCalculator.HomeView
+    FareCalculator.errorView = new FareCalculator.ErrorView
 
   index: ->
     FareCalculator.homeView.render()
@@ -26,3 +28,6 @@ class FareCalculator.AppRouter extends Backbone.Router
 
   results: ->
     FareCalculator.resultsView.render()
+
+  error: ->
+    FareCalculator.errorView.render()

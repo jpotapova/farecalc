@@ -33,14 +33,6 @@ class FareCalculator.FormView extends Backbone.View
     }
     FareCalculator.formModel = new FareCalculator.FormModel(fieldValues)
 
-    ## TO DO: do not perform on failure
-    ###
-    FareCalculator.router.navigate(
-      'results'
-      {trigger: true}
-    )
-    ###
-
   suggestStations: (e)->
     if $(e.target).val().length > 0
       if not FareCalculator.stationsView?
